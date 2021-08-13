@@ -19,5 +19,7 @@ class PushAlarmReviewActivity : AppCompatActivity() {
         setContentView(R.layout.activity_push_alarm_review)
     }
 
+    private fun createFirebaseToken() {
 
+    }
 }
