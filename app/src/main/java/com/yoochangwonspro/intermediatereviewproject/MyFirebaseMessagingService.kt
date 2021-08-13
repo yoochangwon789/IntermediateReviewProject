@@ -11,5 +11,11 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
+
+    }
+
+    companion object {
+        private const val CHANNEL_ID = "Chang Channel"
+        private const val DESCRIPTION = "Chang 채널 입니다."
     }
 }
