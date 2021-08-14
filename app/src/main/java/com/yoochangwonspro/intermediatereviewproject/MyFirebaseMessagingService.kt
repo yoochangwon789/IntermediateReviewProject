@@ -4,6 +4,8 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
@@ -25,6 +27,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         val title = remoteMessage.data["title"]
         val message = remoteMessage.data["message"]
+
     }
 
     private fun createNotificationChannel() {
@@ -38,6 +41,10 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                 getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
+    }
+
+    private fun createNotification() {
+
     }
 
     companion object {
