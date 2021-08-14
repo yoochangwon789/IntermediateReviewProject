@@ -12,6 +12,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
 
+        val type = remoteMessage.data["type"]
+        val title = remoteMessage.data["title"]
+        val message = remoteMessage.data["message"]
     }
 
     companion object {
