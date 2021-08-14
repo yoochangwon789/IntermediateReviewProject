@@ -1,5 +1,6 @@
 package com.yoochangwonspro.intermediatereviewproject
 
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
@@ -28,6 +29,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val title = remoteMessage.data["title"]
         val message = remoteMessage.data["message"]
 
+
     }
 
     private fun createNotificationChannel() {
@@ -43,8 +45,24 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         }
     }
 
-    private fun createNotification() {
+    private fun createNotification(
+        type: AlarmStatus,
+        title: String?,
+        message: String?,
+    ): Notification {
+        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_baseline_notifications_24)
+            .setContentTitle(title)
+            .setContentText(message)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
+        when (type) {
+            AlarmStatus.NORMAL -> Unit
+            AlarmStatus.EXPANDABLE -> {}
+            AlarmStatus.CUSTOM -> {}
+        }
+
+        return builder.build()
     }
 
     companion object {
