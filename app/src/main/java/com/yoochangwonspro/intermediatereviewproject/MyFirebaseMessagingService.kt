@@ -29,7 +29,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val title = remoteMessage.data["title"]
         val message = remoteMessage.data["message"]
 
-
+        NotificationManagerCompat.from(this)
+            .notify(type.id, createNotification(type, title, message))
     }
 
     private fun createNotificationChannel() {
