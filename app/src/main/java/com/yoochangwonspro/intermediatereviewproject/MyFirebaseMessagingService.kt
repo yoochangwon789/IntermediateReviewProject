@@ -19,9 +19,12 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         createNotificationChannel()
 
         val type = remoteMessage.data["type"]
+            ?.let { AlarmStatus.valueOf(it) }
+
+        type ?: return
+
         val title = remoteMessage.data["title"]
         val message = remoteMessage.data["message"]
-
     }
 
     private fun createNotificationChannel() {
