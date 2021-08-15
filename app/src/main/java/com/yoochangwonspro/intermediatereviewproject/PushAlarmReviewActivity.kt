@@ -26,6 +26,7 @@ class PushAlarmReviewActivity : AppCompatActivity() {
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
 
+        setIntent(intent)
     }
 
     private fun createFirebaseToken() {
