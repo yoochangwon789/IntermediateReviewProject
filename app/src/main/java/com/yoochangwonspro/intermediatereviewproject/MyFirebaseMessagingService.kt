@@ -5,6 +5,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
+import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -75,7 +76,11 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                                 "\uD83D\uDE28 \uD83D\uDE30 \uD83D\uDE25 \uD83D\uDE13 \uD83E\uDD17")
                 )
             }
-            AlarmStatus.CUSTOM -> {}
+            AlarmStatus.CUSTOM -> {
+                val notificationLayout = RemoteViews(packageName, R.layout.custom_notify_view)
+
+
+            }
         }
 
         return builder.build()
