@@ -78,7 +78,11 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             }
             AlarmStatus.CUSTOM -> {
                 val notificationLayout = RemoteViews(packageName, R.layout.custom_notify_view)
+                notificationLayout.setTextViewText(R.id.custom_title_text_view, title)
+                notificationLayout.setTextViewText(R.id.custom_message_text_view, message)
 
+                builder.setStyle(NotificationCompat.DecoratedCustomViewStyle())
+                    .setCustomContentView(notificationLayout)
 
             }
         }
