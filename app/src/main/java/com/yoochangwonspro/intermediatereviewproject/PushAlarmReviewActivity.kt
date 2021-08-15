@@ -28,6 +28,7 @@ class PushAlarmReviewActivity : AppCompatActivity() {
         super.onNewIntent(intent)
 
         setIntent(intent)
+        updateResult(true)
     }
 
     @SuppressLint("SetTextI18n")
