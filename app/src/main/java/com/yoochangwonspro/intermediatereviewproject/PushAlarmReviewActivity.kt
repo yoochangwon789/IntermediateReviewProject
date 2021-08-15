@@ -22,6 +22,7 @@ class PushAlarmReviewActivity : AppCompatActivity() {
         setContentView(R.layout.activity_push_alarm_review)
 
         createFirebaseToken()
+        updateResult()
     }
 
     override fun onNewIntent(intent: Intent?) {
@@ -35,9 +36,9 @@ class PushAlarmReviewActivity : AppCompatActivity() {
     private fun updateResult(isNewIntent: Boolean = false) {
         resultTextView.text = (intent.getStringExtra("notificationType") ?: "앱 런처") +
                 if (isNewIntent) {
-                    "으(로) 실행"
+                    "으(로) 갱신 했습니다."
                 } else {
-                    "으(로) 갱신"
+                    "으(로) 실행 했습니다."
                 }
     }
 
