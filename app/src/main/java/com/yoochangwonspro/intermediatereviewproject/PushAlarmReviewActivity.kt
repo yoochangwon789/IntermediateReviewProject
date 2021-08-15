@@ -29,6 +29,10 @@ class PushAlarmReviewActivity : AppCompatActivity() {
         setIntent(intent)
     }
 
+    private fun updateResult(intent: Intent) {
+
+    }
+
     private fun createFirebaseToken() {
         FirebaseMessaging.getInstance().token.addOnCompleteListener {
             if (!it.isSuccessful) {
