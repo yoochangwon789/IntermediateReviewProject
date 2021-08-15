@@ -4,6 +4,7 @@ import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
@@ -52,6 +53,11 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         title: String?,
         message: String?,
     ): Notification {
+        val intent = Intent(this, PushAlarmReviewActivity::class.java).apply {
+            putExtra("notificationType", "${type.type} 타입")
+            addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        }
+
         var builder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_baseline_notifications_24)
             .setContentTitle(title)
