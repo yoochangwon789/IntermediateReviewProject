@@ -1,5 +1,6 @@
 package com.yoochangwonspro.intermediatereviewproject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -20,6 +21,11 @@ class PushAlarmReviewActivity : AppCompatActivity() {
         setContentView(R.layout.activity_push_alarm_review)
 
         createFirebaseToken()
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+
     }
 
     private fun createFirebaseToken() {
