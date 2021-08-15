@@ -3,6 +3,7 @@ package com.yoochangwonspro.intermediatereviewproject
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -57,6 +58,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             putExtra("notificationType", "${type.type} 타입")
             addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
         }
+
+        val pendingIntent = PendingIntent.getActivity(
+            this, type.id, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         var builder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_baseline_notifications_24)
