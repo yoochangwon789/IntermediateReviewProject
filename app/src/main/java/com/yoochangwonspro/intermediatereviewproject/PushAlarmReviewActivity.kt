@@ -1,5 +1,6 @@
 package com.yoochangwonspro.intermediatereviewproject
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -29,10 +30,14 @@ class PushAlarmReviewActivity : AppCompatActivity() {
         setIntent(intent)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateResult(isNewIntent: Boolean = false) {
-        val type = intent.getStringExtra("notificationType")
-
-
+        resultTextView.text = (intent.getStringExtra("notificationType") ?: "앱 런처") +
+                if (isNewIntent) {
+                    "으(로) 실행"
+                } else {
+                    "으(로) 갱신"
+                }
     }
 
     private fun createFirebaseToken() {
