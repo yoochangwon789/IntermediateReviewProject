@@ -68,6 +68,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             .setContentText(message)
             .setContentIntent(pendingIntent)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setAutoCancel(true)
 
         when (type) {
             AlarmStatus.NORMAL -> Unit
