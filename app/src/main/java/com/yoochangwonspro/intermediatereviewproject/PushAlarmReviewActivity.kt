@@ -29,8 +29,9 @@ class PushAlarmReviewActivity : AppCompatActivity() {
         setIntent(intent)
     }
 
-    private fun updateResult(intent: Intent) {
+    private fun updateResult(isNewIntent: Boolean = false) {
         val type = intent.getStringExtra("notificationType")
+
 
     }
 
